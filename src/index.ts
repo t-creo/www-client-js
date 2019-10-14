@@ -29,14 +29,15 @@ export interface TwitterUser {
 }
 
 export interface Tweet {
-  text: Text
+  text: PlainText
   user: TwitterUser
 }
 
-export interface Text {
+export interface PlainText {
   text: string
   lang: Language
 }
+
 export type Language = 'es' | 'en' | 'fr'
 
 export default class WorldWhiteWebClient {
@@ -50,11 +51,23 @@ export default class WorldWhiteWebClient {
 
     async getHealth() : Promise<Health> {
         try {
-            const response = await this.client.get('/health')
-            return response.data
+          const response = await this.client.get('/health')
+          return response.data
         } catch (e) {
-            throw e
+          throw e
         }
     }
 
+    async getPlainTextCredibility(weights: TextCredibilityWeights, text: PlainText) {
+      try {
+        const response = await this.client.get('/calculate/plain-text', {
+          params: {
+            ...weights, ...text
+          }
+        })
+        return response.data
+      } catch (e) {
+        throw e
+      }
+    }
 }

@@ -77,4 +77,13 @@ export default class WorldWhiteWebClient {
     })
     return response.data
   }
+
+  async getTwitterSocialCredibility(userId: string, maxFollowers: number) : Promise<Credibility> {
+    const response = await this.client.get(`/calculate/twitter/social/${userId}`, {
+      params: {
+        maxFollowers
+      }
+    })
+    return response.data
+  }
 }

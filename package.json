@@ -9,8 +9,8 @@
     "build": "tsc",
     "prepare": "npm run build",
     "prepublishOnly": "npm run lint",
-    "preversion" : "npm run lint",
-    "version" : "npm run format && git add -A src",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
     "postversion": "git push"
   },
   "repository": {
@@ -30,5 +30,11 @@
     "eslint": "^6.5.1",
     "typescript": "^3.6.4"
   },
-  "files": ["lib/**/*"]
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+    "@types/axios": "^0.14.0",
+    "axios": "^0.19.0"
+  }
 }

@@ -2,7 +2,8 @@
   "name": "www-client-js",
   "version": "1.0.0",
   "description": "Javascript client to interact with the world-white-web client",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "lint": "eslint src/**",
     "test": "npm run lint && npm run build",

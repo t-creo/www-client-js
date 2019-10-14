@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios'
 
 export interface Health {
-    status: 'UP'
+  status: 'UP'
 }
 
 export interface Credibility {
@@ -41,33 +41,25 @@ export interface PlainText {
 export type Language = 'es' | 'en' | 'fr'
 
 export default class WorldWhiteWebClient {
-    client: AxiosInstance
+  client: AxiosInstance
 
-    constructor(baseUrl: string = "http://world-white-web.herokuapp.com") {
-        this.client = axios.create({
-            baseURL: baseUrl
-        })
-    }
+  constructor(baseUrl: string = 'http://world-white-web.herokuapp.com') {
+    this.client = axios.create({
+      baseURL: baseUrl
+    })
+  }
 
-    async getHealth() : Promise<Health> {
-        try {
-          const response = await this.client.get('/health')
-          return response.data
-        } catch (e) {
-          throw e
-        }
-    }
+  async getHealth() : Promise<Health> {
+    const response = await this.client.get('/health')
+    return response.data
+  }
 
-    async getPlainTextCredibility(weights: TextCredibilityWeights, text: PlainText) {
-      try {
-        const response = await this.client.get('/calculate/plain-text', {
-          params: {
-            ...weights, ...text
-          }
-        })
-        return response.data
-      } catch (e) {
-        throw e
+  async getPlainTextCredibility(weights: TextCredibilityWeights, text: PlainText) {
+    const response = await this.client.get('/calculate/plain-text', {
+      params: {
+        ...weights, ...text
       }
-    }
+    })
+    return response.data
+  }
 }

@@ -1,0 +1,23 @@
+{
+  "name": "www-client-js",
+  "version": "1.0.0",
+  "description": "Javascript client to interact with the world-white-web client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/World-White-Web/www-client-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/World-White-Web/www-client-js/issues"
+  },
+  "homepage": "https://github.com/World-White-Web/www-client-js#readme",
+  "devDependencies": {
+    "typescript": "^3.6.4"
+  }
+}

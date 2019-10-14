@@ -68,4 +68,13 @@ export default class WorldWhiteWebClient {
     const response = await this.client.get(`/calculate/twitter/user/${userId}`)
     return response.data
   }
+
+  async getTwitterUserCredWithScraping(verified: boolean, yearJoined: number) : Promise<Credibility> {
+    const response = await this.client.get(`/calculate/twitter/user/scrape`, {
+      params: {
+        verified, yearJoined
+      }
+    })
+    return response.data
+  }
 }

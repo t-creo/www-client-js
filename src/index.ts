@@ -112,7 +112,7 @@ export default class WorldWhiteWebClient {
   async getTweetCredibilityWithScraping(
     text: PlainText, textWeights: TextCredibilityWeights,
     tweetWeights: TweetCredibilityWeights, user: TwitterUser, maxFollowers: number) : Promise<Credibility> {
-    const response = await this.client.get('/calculate/twitter/social/scrape', {
+    const response = await this.client.get('/calculate/tweets/scraped', {
       params: {
         ...textWeights, ...tweetWeights, maxFollowers,
         tweetText: text.text, lang: text.lang, ...user

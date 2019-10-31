@@ -99,22 +99,22 @@ export default class WorldWhiteWebClient {
   }
 
   async getTweetCredibility(
-    tweetId: string, textWeights: TextCredibilityWeights,
-    tweetWeights: TweetCredibilityWeights, maxFollowers: number) : Promise<Credibility> {
+    tweetId: string, tweetWeights: TweetCredibilityWeights,
+    maxFollowers: number) : Promise<Credibility> {
     const response = await this.client.get('/calculate/twitter/tweets', {
       params: {
-        ...textWeights, ...tweetWeights, maxFollowers, tweetId
+        ...tweetWeights, maxFollowers, tweetId
       }
     })
     return response.data
   }
 
   async getTweetCredibilityWithScraping(
-    text: PlainText, textWeights: TextCredibilityWeights,
-    tweetWeights: TweetCredibilityWeights, user: TwitterUser, maxFollowers: number) : Promise<Credibility> {
+    text: PlainText, tweetWeights: TweetCredibilityWeights,
+    user: TwitterUser, maxFollowers: number) : Promise<Credibility> {
     const response = await this.client.get('/calculate/tweets/scraped', {
       params: {
-        ...textWeights, ...tweetWeights, maxFollowers,
+        ...tweetWeights, maxFollowers,
         tweetText: text.text, lang: text.lang, ...user
       }
     })

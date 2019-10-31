@@ -101,7 +101,7 @@ export default class WorldWhiteWebClient {
   async getTweetCredibility(
     tweetId: string, textWeights: TextCredibilityWeights,
     tweetWeights: TweetCredibilityWeights, maxFollowers: number) : Promise<Credibility> {
-    const response = await this.client.get('/calculate/twitter/social/scrape', {
+    const response = await this.client.get('/calculate/twitter/tweets', {
       params: {
         ...textWeights, ...tweetWeights, maxFollowers, tweetId
       }
